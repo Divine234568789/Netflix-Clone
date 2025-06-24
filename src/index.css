@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root {
+  /* color-scheme: light dark; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+* {
+  appearance: none;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
