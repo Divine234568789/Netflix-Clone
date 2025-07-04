@@ -9,10 +9,28 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 * {
   appearance: none;
   outline: none;
   box-sizing: border-box;
   text-decoration: none;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.landing .header {
+  background-image: url(/public/landing-img/bacground-1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 100%;
+}
+
+.question:hover {
+  transition: all 0.1s ease;
+  transform: scale(1.1);
+  cursor: pointer;
 }
