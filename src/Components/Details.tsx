@@ -59,16 +59,57 @@ const Details = () => {
       </article>
 
             </header>
-      <article className='mt-20 h-full w-full'>
-         <div className="relativ h-[300vh] w-full">
+      <article className='mt-20 h-fit w-full'>
+         <div className="relativ h-fit w-full">
         <div>
-          <h2 className="pl-15 text-xl">More Like This</h2>
+          <h2 className="pl-20 text-2xl">More Like This</h2>
 
-          <div className="mt-13 pl-15 space-x-7">
-           <span className='border w-96 h-72'></span>
+          <div className="mt-45 pl-55  space-x-17 items-center ">
+           <span className='border border-black w-96 h-72 p-10 py-35 px-25 rounded-2xl bg-[#1b1b1b]'></span>
+           <span className='border border-black w-96 h-72 p-10 py-35 px-25 rounded-2xl bg-[#1b1b1b]'></span>
+           <span className='border border-black w-96 h-72 p-10 py-35 px-25 rounded-2xl bg-[#1b1b1b]'></span>
+           <span className='border border-black w-96 h-72 p-10 py-35 px-25 rounded-2xl bg-[#1b1b1b]'></span>
+         
+          </div>
+           <div className="mt-80 pl-55  space-x-17 items-center ">
+           <span className='border border-black w-96 h-72 p-10 py-35 px-25 rounded-2xl bg-[#1b1b1b]'></span>
+           <span className='border border-black w-96 h-72 p-10 py-35 px-25 rounded-2xl bg-[#1b1b1b]'></span>
+           <span className='border border-black w-96 h-72 p-10 py-35 px-25 rounded-2xl bg-[#1b1b1b]'></span>
+           <span className='border border-black w-96 h-72 p-10 py-35 px-25 rounded-2xl bg-[#1b1b1b]'></span>
          
           </div>
           </div>
+           <div className="w-full h-full mt-50 ">
+          <h2 className='pl-20 text-2xl'>Trailers like this</h2>
+           <div className="mt-23 pl-50 space-x-10">
+            <span className="w-52 h-32 p-5 px-25 py-15 rounded border border-white">
+              la
+            </span>
+            <span className="w-52 h-32 p-5 px-25 py-15 rounded border border-white">
+              la
+            </span>
+            <span className="w-52 h-32 p-5 px-25 py-15 rounded border border-white">
+              la
+            </span>
+            <span className="w-52 h-32 p-5 px-25 py-15 rounded border border-white">
+              la
+            </span>
+          </div> 
+                  <div className="mt-40 pl-20">
+                    <h1 className='text-xl '>About <span className='text-2xl font-bold'>House of Ninjas</span></h1>
+                    <div className="mt-3"> 
+                    <p><span className='font-bold text-[#1b1b1b] pr-3'>Director:</span> Dave Boyle</p>
+                    <p><span className='font-bold text-[#1b1b1b] pr-3'>Cast:</span>Kento Kaku, Yosuke Eguchi, Tae Kimura, Kengo Kora, Aju Makita, Nobuko Miyamoto,<br/>
+                     Tomorowo Taguchi, Riho Yoshioka, Tokio Emoto, Kyusaku Shimada, Pierre Taki, <br/>
+                     Mariko Tsutsui, Tenta Banka, Takayuki Yamada</p>
+                    <p><span className='font-bold text-[#1b1b1b] pr-3'>Genres:</span> TV Dramas, Japanese, TV Thrillers</p>
+                    <p>This show is: Dark, Suspenseful, Exciting</p>
+                    <p><span className='font-bold text-[#1b1b1b] pr-3 '>Maturity rating:</span> Smoking, violence For Mature Audiences.</p>
+                    <p><span className='font-bold text-[#1b1b1b] pr-3 '>Maturity rating:</span>:TV-MAsmoking, violenceFor Mature Audiences.</p>
+                    </div>
+                  </div> 
+          </div>
+
         </div>
       </article>
     </section>
