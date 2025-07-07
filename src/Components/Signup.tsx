@@ -1,45 +1,60 @@
-import "react";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
 
   const navigate = useNavigate();
 
-  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
+  const handleSignup = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
-    if (!email || !password) {
-      setError("Both fields are required.");
+    // Basic validation
+    if (!email || !password || !confirmPassword) {
+      setError("All fields are required.");
       return;
     }
 
-    const storedUser = localStorage.getItem(`user:${email}`);
-    if (!storedUser) {
-      setError("No account found with this email.");
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(email)) {
+      setError("Invalid email.");
       return;
     }
 
-    const parsedUser = JSON.parse(storedUser);
-
-    if (parsedUser.password !== password) {
-      setError("Incorrect password.");
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters.");
       return;
     }
 
-    // Simulate login success
-    alert(`Welcome back, ${parsedUser.name}!`);
-    navigate("/dashboard"); // Change to wherever you want to redirect after login
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    const existingUser = localStorage.getItem(`user:${email}`);
+    if (existingUser) {
+      setError("An account with this email already exists.");
+      return;
+    }
+
+    const user = {
+      email,
+      password,
+    };
+
+    localStorage.setItem(`user:${email}`, JSON.stringify(user));
+
+    // Redirect to login page
+    navigate("/Login-page");
   };
 
   return (
     <div className="relative w-screen h-screen log">
       <header>
-        {/* Logo */}
         <div className="bg-black h-[122.5vh] opacity-55 absolute w-full"></div>
         <img
           src="/img/logo.png"
@@ -51,17 +66,17 @@ const LoginPage = () => {
 
       <main className="flex-grow flex items-center justify-center py-8 px-4 relative">
         <div className="w-full max-w-md bg-[#141414] bg-opacity-80 rounded-lg p-8 md:p-12">
-          <h1 className="text-3xl font-bold mb-8 text-white">Log In</h1>
-          <form action="" onSubmit={handleLogin} className="space-y-6">
+          <h1 className="text-3xl font-bold mb-8 text-white">Sign In</h1>
+          <form action="/submit" onSubmit={handleSignup} className="space-y-6">
             <div>
               <input
                 type="email"
                 name="email"
+                placeholder="Email"
                 value={email}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setEmail(e.target.value)
                 }
-                placeholder="Email"
                 className="w-full p-3 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
@@ -76,14 +91,71 @@ const LoginPage = () => {
                 className="w-full p-3 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
+            <div>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setConfirmPassword(e.target.value)
+                }
+                className="w-full p-3 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-600"
+              />
+            </div>
             <button
               type="submit"
               className="w-full bg-red-600 text-white font-bold py-3 rounded cursor-pointer hover:bg-red-900 transition duration-200"
             >
-              Log In
+              Sign In
             </button>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="remember"
+                  className="mr-2 rounded focus:ring-red-600"
+                />
+                <label htmlFor="remember" className="text-gray-400 text-sm">
+                  Remember me
+                </label>
+              </div>
+              <div>
+                <a href="" className="text-gray-300 text-sm hover:underline">
+                  Need help?
+                </a>
+              </div>
+            </div>
           </form>
           {error && <p className="text-red-600 mt-3">{error}</p>}
+          <div className="mt-8">
+            <div className="flex items-center">
+              <div className="h-px bg-gray-500 flex-grow"></div>
+              <span className="px-4 text-gray-200 text-sm">OR</span>
+              <div className="h-px bg-gray-500 flex-grow"></div>
+            </div>
+
+            <div className="mt-6 space-y-4">
+              <button className="w-full flex items-center justify-center bg-white text-black font-bold py-3 rounded hover:bg-gray-200 transition">
+                <i className="mr-2 text-red-600"></i>
+                Sign in with Google
+              </button>
+
+              <div className="text-center">
+                <a href="#" className="text-gray-300 text-sm hover:underline">
+                  Use a sign-in code
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-gray-300">
+              New to Netflix?
+              <a href="#" className="text-white hover:underline font-medium">
+                Sign up now
+              </a>
+              .
+            </p>
+          </div>
 
           <div className="mt-8 p-4 bg-black bg-opacity-40 rounded">
             <p className="text-xs text-gray-300 text-center">
@@ -186,4 +258,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;
