@@ -31,15 +31,13 @@ const LoginPage = () => {
       return;
     }
 
-    // Simulate login success
     alert(`Welcome back, ${parsedUser.email}!`);
-    navigate("/landing-page"); // Change to wherever you want to redirect after login
+    navigate("/landing-page");
   };
 
   return (
     <div className="relative w-screen h-screen log">
       <header>
-        {/* Logo */}
         <div className="bg-black h-full overflow-hidden opacity-55 absolute w-full"></div>
         <img
           src="/img/logo.png"

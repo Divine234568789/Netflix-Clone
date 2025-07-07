@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
-// import LoginPage from "./Login-Page";
 
 const SignupPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -16,29 +16,34 @@ const SignupPage = () => {
 
     // Basic validation
     if (!email || !password || !confirmPassword) {
-      setError("All fields are required.");
+      //   setError("All fields are required.");
+      toast.error("All fields are required.");
       return;
     }
 
     const emailRegex = /\S+@\S+\.\S+/;
     if (!emailRegex.test(email)) {
-      setError("Invalid email.");
+      //   setError("Invalid email.");
+      toast.error("Invalid email.");
       return;
     }
 
     if (password.length < 6) {
-      setError("Password must be at least 6 characters.");
+      //   setError("Password must be at least 6 characters.");
+      toast.error("Password must be at least 6 characters.");
       return;
     }
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match.");
+      //   setError("Passwords do not match.");
+      toast.error("Passwords do not match.");
       return;
     }
 
     const existingUser = localStorage.getItem(`user:${email}`);
     if (existingUser) {
-      setError("An account with this email already exists.");
+      //   setError("An account with this email already exists.");
+      toast.error("An account with this email already exists.");
       return;
     }
 
@@ -48,7 +53,8 @@ const SignupPage = () => {
     };
 
     localStorage.setItem(`user:${email}`, JSON.stringify(user));
-    navigate("/Login-page");
+    toast.success("Account created! Redirecting to login...");
+    setTimeout(() => navigate("/Login-page"), 1500);
   };
 
   return (
@@ -139,19 +145,16 @@ const SignupPage = () => {
                 <i className="mr-2 text-red-600"></i>
                 Sign in with Google
               </button>
-
-              <div className="text-center">
-                <a href="#" className="text-gray-300 text-sm hover:underline">
-                  Use a sign-in code
-                </a>
-              </div>
             </div>
           </div>
           <div className="mt-8 text-center">
             <p className="text-gray-300">
-              New to Netflix?
-              <a href="#" className="text-white hover:underline font-medium">
-                Sign up now
+              Already have an Account?
+              <a
+                href="/Login-page"
+                className="text-white hover:underline font-medium"
+              >
+                Log In now
               </a>
               .
             </p>
