@@ -1,5 +1,6 @@
 import "react";
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
 
 const LoginPage = () => {
@@ -14,25 +15,29 @@ const LoginPage = () => {
     setError("");
 
     if (!email || !password) {
-      setError("Both fields are required.");
+      // setError("Both fields are required.");
+      toast.error("Both fields are required.");
       return;
     }
 
     const storedUser = localStorage.getItem(`user:${email}`);
     if (!storedUser) {
-      setError("No account found with this email.");
+      // setError("No account found with this email.");
+      toast.error("No account found with this email.");
       return;
     }
 
     const parsedUser = JSON.parse(storedUser);
 
     if (parsedUser.password !== password) {
-      setError("Incorrect password.");
+      // setError("Incorrect password.");
+      toast.error("Incorrect password.");
       return;
     }
 
-    alert(`Welcome back, ${parsedUser.email}!`);
-    navigate("/landing-page");
+    // alert(`Welcome back, ${parsedUser.email}!`);
+    toast.success(`Welcome back, ${parsedUser.email}!`);
+    setTimeout(() => navigate("/landing-page"), 1500);
   };
 
   return (
