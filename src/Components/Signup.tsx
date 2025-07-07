@@ -1,6 +1,8 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { auth, googleProvider } from "firebase";
+import { signInWithPopup } from "firebase/auth";
 
 const SignupPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -9,6 +11,32 @@ const SignupPage = () => {
   const [error, setError] = useState<string>("");
 
   const navigate = useNavigate();
+
+  const handleGoogleSignup = () => {
+    const handleSignin = async () => {
+      try {
+        const result = await signInWithPopup(auth, googleProvider);
+        const user = result.user;
+
+        // Store in localStorage
+        const userData = {
+          name: user.displayName,
+          email: user.email,
+          uid: user.uid,
+        };
+
+        localStorage.setItem(`user:${user.email}`, JSON.stringify(userData));
+
+        toast.success(`Signed up as ${user.displayName}`);
+        navigate("/Login-page");
+      } catch (error) {
+        console.error(error);
+        toast.error("Google sign-in failed");
+      }
+    };
+
+    return handleSignin();
+  };
 
   const handleSignup = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -141,7 +169,10 @@ const SignupPage = () => {
             </div>
 
             <div className="mt-6 space-y-4">
-              <button className="w-full flex items-center justify-center bg-white text-black font-bold py-3 rounded hover:bg-gray-200 transition">
+              <button
+                onClick={handleGoogleSignup}
+                className="w-full flex items-center justify-center bg-white text-black font-bold py-3 rounded hover:bg-gray-400 hover:cursor-pointer "
+              >
                 <i className="mr-2 text-red-600"></i>
                 Sign in with Google
               </button>
