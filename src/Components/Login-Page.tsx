@@ -40,7 +40,7 @@ const LoginPage = () => {
     <div className="relative w-screen h-screen log">
       <header>
         {/* Logo */}
-        <div className="bg-black h-[122.5vh] opacity-55 absolute w-full"></div>
+        <div className="bg-black h-full overflow-hidden opacity-55 absolute w-full"></div>
         <img
           src="/img/logo.png"
           alt="Netflix Logo"

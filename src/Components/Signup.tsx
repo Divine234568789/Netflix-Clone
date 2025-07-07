@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate } from "react-router";
-import LoginPage from "./Login-Page";
+// import LoginPage from "./Login-Page";
 
 const SignupPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -54,7 +54,7 @@ const SignupPage = () => {
   return (
     <div className="relative w-screen h-screen log">
       <header>
-        <div className="bg-black h-full opacity-55 absolute w-full"></div>
+        <div className="bg-black h-full opacity-55 absolute overflow-hidden w-full"></div>
         <img
           src="/img/logo.png"
           alt="Netflix Logo"
