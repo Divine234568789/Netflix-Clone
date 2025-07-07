@@ -3,9 +3,9 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -32,8 +32,8 @@ const LoginPage = () => {
     }
 
     // Simulate login success
-    alert(`Welcome back, ${parsedUser.name}!`);
-    navigate("/dashboard"); // Change to wherever you want to redirect after login
+    alert(`Welcome back, ${parsedUser.email}!`);
+    navigate("/landing-page"); // Change to wherever you want to redirect after login
   };
 
   return (

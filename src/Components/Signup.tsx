@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate } from "react-router";
+import LoginPage from "./Login-Page";
 
 const SignupPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -47,15 +48,13 @@ const SignupPage = () => {
     };
 
     localStorage.setItem(`user:${email}`, JSON.stringify(user));
-
-    // Redirect to login page
     navigate("/Login-page");
   };
 
   return (
     <div className="relative w-screen h-screen log">
       <header>
-        <div className="bg-black h-[122.5vh] opacity-55 absolute w-full"></div>
+        <div className="bg-black h-full opacity-55 absolute w-full"></div>
         <img
           src="/img/logo.png"
           alt="Netflix Logo"
@@ -66,7 +65,7 @@ const SignupPage = () => {
 
       <main className="flex-grow flex items-center justify-center py-8 px-4 relative">
         <div className="w-full max-w-md bg-[#141414] bg-opacity-80 rounded-lg p-8 md:p-12">
-          <h1 className="text-3xl font-bold mb-8 text-white">Sign In</h1>
+          <h1 className="text-3xl font-bold mb-8 text-white">Sign Up</h1>
           <form action="/submit" onSubmit={handleSignup} className="space-y-6">
             <div>
               <input
@@ -106,8 +105,9 @@ const SignupPage = () => {
               type="submit"
               className="w-full bg-red-600 text-white font-bold py-3 rounded cursor-pointer hover:bg-red-900 transition duration-200"
             >
-              Sign In
+              Sign Up
             </button>
+
             <div className="flex justify-between items-center">
               <div className="flex items-center">
                 <input
