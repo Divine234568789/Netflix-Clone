@@ -1,0 +1,206 @@
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 10, 27, 0.95) 0%,
+    rgba(144, 144, 144, 0.1) 50%,
+    rgba(7, 10, 27, 0.95) 100%
+  );
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.about-container h1 {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg, #ffffff, #64b5f6, #ffffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(100, 181, 246, 0.3);
+}
+
+.about-container p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  text-align: justify;
+  padding: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.about-container p:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.about-container strong {
+  color: #64b5f6;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+}
+
+.about-container em {
+  color: #ffd700;
+  font-style: italic;
+  font-weight: 500;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Feature highlights section */
+.about-container p:nth-child(3) {
+  background: linear-gradient(90deg, rgba(100, 181, 246, 0.1), transparent);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #64b5f6;
+  margin: 30px 0;
+}
+
+/* Tech stack highlight */
+.about-container p:nth-child(4) {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #ffd700;
+  margin: 30px 0;
+}
+
+/* Tagline styling */
+.about-container p:last-child {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 40px;
+  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1),
+    rgba(100, 181, 246, 0.1)
+  );
+  border-radius: 15px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .about-container {
+    margin: 20px;
+    padding: 30px 15px;
+    border-radius: 15px;
+  }
+
+  .about-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+  }
+
+  .about-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 0 5px;
+  }
+
+  .about-container p:nth-child(3),
+  .about-container p:nth-child(4) {
+    padding: 15px;
+    margin: 20px 0;
+  }
+
+  .about-container p:last-child {
+    font-size: 1.1rem;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    margin: 10px;
+    padding: 20px 10px;
+  }
+
+  .about-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .about-container p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .about-container p:nth-child(3),
+  .about-container p:nth-child(4) {
+    padding: 12px;
+    margin: 15px 0;
+  }
+
+  .about-container p:last-child {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Hover effects for interactive elements */
+.about-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+.about-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.about-container::-webkit-scrollbar-track {
+  background: rgba(7, 10, 27, 0.3);
+  border-radius: 4px;
+}
+
+.about-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #64b5f6, #ffd700);
+  border-radius: 4px;
+}
+
+.about-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #42a5f5, #ffc107);
+}
