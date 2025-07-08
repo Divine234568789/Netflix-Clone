@@ -29,7 +29,7 @@ const landing = () => {
                 </select>
               </span>
               <li>
-                <button className="px-6 py-2 md:px-3 lg:w-32 md:text-base bg-red-700 rounded text-white">
+                <button className="px-6 py-2 md:px-3 lg:w-32 md:text-base bg-red-700 rounded text-white  hover:bg-red-900 transition-colors duration-100 hover:cursor-pointer">
                   Sign Up
                 </button>
               </li>
@@ -54,7 +54,10 @@ const landing = () => {
                 required
                 className="flex-1 w-full p-2 rounded opacity-80 placeholder-gray-400 text-black outline-none border-2 border-gray-300"
               />
-              <button className="bg-red-700 px-5 py-2 rounded text-white font-semibold w-full sm:w-auto">
+              <button
+                className="bg-red-700 px-5 py-2 rounded text-white font-semibold w-full sm:w-auto hover:bg-red-900 transition-colors duration-100 hover:cursor-pointer"
+                // onClick={}
+              >
                 Get Started {`>`}
               </button>
             </div>
@@ -110,13 +113,13 @@ const landing = () => {
                 src="/landing-img/tv.png"
                 alt="TV Image"
                 width={350}
-                className="relative"
+                className="relative z-10"
               />
               <img
                 src="/landing-img/screenshot.png"
                 alt=""
-                width={220}
-                className="absolute right-4 -bottom-16 hidden md:block"
+                width={254}
+                className="relative left-11.5 bottom-52"
               />
             </div>
           </div>
@@ -132,13 +135,14 @@ const landing = () => {
                 width={250}
                 className="relative z-10"
               />
+              <img
+                src="/landing-img/screenshot2.png"
+                alt=""
+                width={152}
+                className="relative bottom-42 left-12 flex bg-no-repeat"
+              />
             </div>
-            <img
-              src="/landing-img/screenshot2.png"
-              alt=""
-              width={120}
-              className="absolute left-1/2 lg:left-1/3 -bottom-24 bg-no-repeat hidden md:block"
-            />
+
             <div className="mt-6 lg:mt-0">
               <h2 className="text-xl md:text-2xl font-bold">
                 Watch everywhere
@@ -243,7 +247,7 @@ const landing = () => {
                 required
                 className="flex-1 w-full p-2 rounded opacity-90 placeholder-gray-400 text-black outline-none border-2 border-gray-300"
               />
-              <button className="bg-red-700 px-5 py-2 rounded text-white font-semibold w-full sm:w-auto">
+              <button className="bg-red-700 px-5 py-2 rounded text-white font-semibold w-full sm:w-auto  hover:bg-red-900 transition-colors duration-100 hover:cursor-pointer">
                 Get Started {`>`}
               </button>
             </div>
