@@ -9,13 +9,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  appearance: none;
-  outline: none;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
 body {
   background-color: black;
   color: white;

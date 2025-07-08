@@ -20,7 +20,8 @@ const landing = () => {
               <select className="bg-transparent  text-white ">
                 <option
                   value="en"
-                  className="  bg-[#1b1b1b] text-white font-normal  border">
+                  className="  bg-[#1b1b1b] text-white font-normal  border"
+                >
                   {" "}
                   English{" "}
                 </option>
@@ -28,7 +29,7 @@ const landing = () => {
             </span>
             <li>
               <button className="p-2 bg-red-700 rounded text-white">
-                Sign In
+                Sign Up
               </button>
             </li>
           </menu>
@@ -78,7 +79,8 @@ const landing = () => {
             </p>
             <a
               href="#"
-              className="text-blue-400  underline  hover:text-blue-300">
+              className="text-blue-400  underline  hover:text-blue-300"
+            >
               {" "}
               Learn more{" "}
             </a>
@@ -171,7 +173,7 @@ const landing = () => {
               className="relative z-10"
             />
           </div>
-          
+
           <div>
             <h2 className="text-2xl font-bold">
               Download your shows <br />
@@ -324,7 +326,8 @@ const landing = () => {
           <select
             name="language"
             id=" language"
-            className="bg-black text-white rounded-lg">
+            className="bg-black text-white rounded-lg"
+          >
             <option value="en" className="text-l font-bold">
               English{" "}
             </option>
