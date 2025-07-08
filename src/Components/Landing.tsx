@@ -1,6 +1,12 @@
 import "react";
+import { useNavigate } from "react-router";
 
-const landing = () => {
+const Landing = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/Signup-page");
+  };
+
   return (
     <>
       <section className="landing w-full min-h-screen bg-black">
@@ -29,7 +35,10 @@ const landing = () => {
                 </select>
               </span>
               <li>
-                <button className="px-6 py-2 md:px-3 lg:w-32 md:text-base bg-red-700 rounded text-white  hover:bg-red-900 transition-colors duration-100 hover:cursor-pointer">
+                <button
+                  className="px-6 py-2 md:px-3 lg:w-32 md:text-base bg-red-700 rounded text-white  hover:bg-red-900 transition-colors duration-100 hover:cursor-pointer"
+                  onClick={handleClick}
+                >
                   Sign Up
                 </button>
               </li>
@@ -56,7 +65,7 @@ const landing = () => {
               />
               <button
                 className="bg-red-700 px-5 py-2 rounded text-white font-semibold w-full sm:w-auto hover:bg-red-900 transition-colors duration-100 hover:cursor-pointer"
-                // onClick={}
+                onClick={handleClick}
               >
                 Get Started {`>`}
               </button>
@@ -247,7 +256,10 @@ const landing = () => {
                 required
                 className="flex-1 w-full p-2 rounded opacity-90 placeholder-gray-400 text-black outline-none border-2 border-gray-300"
               />
-              <button className="bg-red-700 px-5 py-2 rounded text-white font-semibold w-full sm:w-auto  hover:bg-red-900 transition-colors duration-100 hover:cursor-pointer">
+              <button
+                className="bg-red-700 px-5 py-2 rounded text-white font-semibold w-full sm:w-auto  hover:bg-red-900 transition-colors duration-100 hover:cursor-pointer"
+                onClick={handleClick}
+              >
                 Get Started {`>`}
               </button>
             </div>
@@ -310,4 +322,4 @@ const landing = () => {
   );
 };
 
-export default landing;
+export default Landing;

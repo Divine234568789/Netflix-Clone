@@ -7,7 +7,7 @@ import { createBrowserRouter } from "react-router";
 // import HomeScreen from "@screen/home-screen.tsx";
 import LoginPage from "@/Components/Login-Page.tsx";
 import SignupPage from "./Components/Signup";
-import landing from "./Components/Landing";
+import Landing from "./Components/Landing";
 import Viewer from "./Components/Viewer";
 import Homepage from "./Components/Homepage";
 import Details from "./Components/Details";
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
   // },
   {
     path: "/",
-    Component: landing,
+    Component: Landing,
   },
 
   {
