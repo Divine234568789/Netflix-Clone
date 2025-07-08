@@ -4,7 +4,7 @@ const landing = () => {
   return (
     <>
       <section className="landing w-full min-h-screen bg-black">
-        <header className="header relative w-full min-h-screen">
+        <header className="header relative w-full min-h-150">
           <div className="bg-black h-full opacity-60 absolute w-full inset-0"></div>
 
           <nav className="relative z-10 flex flex-col md:flex-row md:justify-between items-center px-4 md:px-10 lg:px-20 h-24 pt-5">
@@ -36,7 +36,7 @@ const landing = () => {
             </menu>
           </nav>
 
-          <div className="flex flex-col justify-center items-center text-center relative z-10 w-full h-full text-white mt-12 px-4">
+          <div className="flex flex-col justify-center items-center text-center relative z-10 w-full h-full text-white mt-40 px-4">
             <h1 className="text-2xl md:text-4xl font-bold">
               Unlimited movies, TV shows, and more.
             </h1>
