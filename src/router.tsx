@@ -4,9 +4,13 @@ import { createBrowserRouter } from "react-router";
 // Importation can also be done like the above commented line
 // Check ../tsconfig.app.json for how the paths are configured to add custom path if needed
 //
-import HomeScreen from "@screen/home-screen.tsx";
+// import HomeScreen from "@screen/home-screen.tsx";
 import LoginPage from "@/Components/Login-Page.tsx";
 import SignupPage from "./Components/Signup";
+import landing from "./Components/Landing";
+import Viewer from "./Components/Viewer";
+import Homepage from "./Components/Homepage";
+import Details from "./Components/Details";
 
 /**
  * Route should be declared in this file
@@ -15,9 +19,28 @@ import SignupPage from "./Components/Signup";
  */
 
 const router = createBrowserRouter([
+  // {
+  //   path: "/",
+  //   Component: HomeScreen,
+  // },
   {
     path: "/",
-    Component: HomeScreen,
+    Component: landing,
+  },
+
+  {
+    path: "/viewer",
+    Component: Viewer,
+  },
+
+  {
+    path: "/Homepage",
+    Component: Homepage,
+  },
+
+  {
+    path: "/Details",
+    Component: Details,
   },
   {
     path: "/Signup-page",
