@@ -4,7 +4,7 @@ const landing = () => {
   return (
     <section className="landing max-w-screen max-h-screen">
       <header className="header max-w-screen max-h-screen ">
-        <div className="bg-black h-screen opacity-60 absolute w-full"></div>
+        <div className="bg-black h-full opacity-60 absolute w-full"></div>
 
         <nav className=" flex gap-1 justify-between text-white z-99 relative h-24 pt-5 ">
           <div className="pt-1 pl-20 justify-center flex text-3xl">
