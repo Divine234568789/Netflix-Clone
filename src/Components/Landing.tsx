@@ -226,13 +226,13 @@ const Landing = () => {
               "How to cancel?",
               "What devices can I use?",
               "Is Netflix free?",
-            ].map((q, i) => (
+            ].map((FAQ, index) => (
               <div
-                key={i}
+                key={index}
                 className="bg-[#1b1b1b] w-full max-w-2xl rounded-lg question my-1"
               >
                 <h2 className="text-lg md:text-2xl font-bold flex justify-between items-center px-6 py-4">
-                  {q}
+                  {FAQ}
                   <img
                     src="/landing-img/vector.png"
                     alt=""
