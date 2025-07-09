@@ -11,6 +11,8 @@ import Landing from "./Components/Landing";
 import Viewer from "./Components/Viewer";
 import Homepage from "./Components/Homepage";
 import Details from "./Components/Details";
+import CategoryPage from "./Components/CategoryPage";
+import SearchResults from "./Components/SearchResult";
 
 /**
  * Route should be declared in this file
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/Details",
+    path: "/movie/:movieId",
     Component: Details,
   },
   {
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
   {
     path: "/Login-page",
     Component: LoginPage,
+  },
+  {
+    path: "/category/:categoryName",
+    Component: CategoryPage,
+  },
+  {
+    path: "/search/:query",
+    Component: SearchResults,
   },
 ]);
 

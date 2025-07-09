@@ -13,7 +13,7 @@ const Homepage = () => {
       <header className="header relative w-full min-h-[60vh]">
         <img
           src="/Home-img/bcg home.png"
-          className="absolute w-full h-[100vh] object-cover"
+          className="absolute w-full h-screen object-cover"
           alt=""
         />
         <div className="opacity-15 h-full bg-black w-full absolute inset-0"></div>
@@ -63,13 +63,11 @@ const Homepage = () => {
           </div>
         </div>
       </header>
-      <div
-        className="relative w-full px-2 md:px-8 py-8 hover:cursor-pointer"
-        onClick={() => navigate("/Details")}
-      >
-        <MovieSection />
-      </div>
-      <footer className="w-full bg-black text-gray-400 text-xs mt-10">
+
+      <footer className="w-full bg-[#141414] text-gray-400 text-xs mt-10">
+        <div className="relative w-full px-2 md:px-8 py-8">
+          <MovieSection />
+        </div>
         <article className="relative w-full max-w-6xl mx-auto flex flex-col items-center p-6 md:p-20">
           <div className="mb-4">
             Questions? Call{" "}
