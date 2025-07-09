@@ -25,7 +25,7 @@ const MovieRow = ({
       {title}
     </h2>
 
-    <div className="mt-5 pl-2 md:pl-8 flex gap-4 overflow-x-auto overflow-x-hidden">
+    <div className="mt-5 pl-2 md:pl-8 flex gap-4 overflow-x-auto">
       {Array.from({ length: itemCount }).map((_, id) => (
         <span
           key={id}

@@ -1,8 +1,13 @@
 import { Bell, ChevronDown, Info, Play, Search } from "lucide-react";
 import "react";
 import MovieSection from "./MovieSection";
+import { useNavigate } from "react-router";
 
 const Homepage = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/Viewer");
+  };
   return (
     <section className="homepage w-full min-h-screen bg-black">
       <header className="header relative w-full min-h-[60vh]">
@@ -27,10 +32,13 @@ const Homepage = () => {
           <div className="flex gap-4 md:ml-auto items-center">
             <Search className="w-5 h-5" />
             <Bell className="w-5 h-5" />
-            <span className="flex items-center">
-              <img src="/watch-img/smile purple.png" alt="" width={25} />
-              <ChevronDown width={15} />
-            </span>
+
+            <button onClick={handleClick}>
+              <span className="flex items-center hover:cursor-pointer hover:bg-gray-800 p-1 rounded active:bg-gray-800 active:scale-3d">
+                <img src="/watch-img/smile purple.png" alt="" width={25} />{" "}
+                <ChevronDown width={15} />
+              </span>
+            </button>
           </div>
         </nav>
         <div className="w-full max-w-xl px-4 md:px-0 h-auto mt-10 md:mt-28 ml-0 md:ml-32 relative z-10">
@@ -55,7 +63,10 @@ const Homepage = () => {
           </div>
         </div>
       </header>
-      <div className="relative w-full px-2 md:px-8 py-8">
+      <div
+        className="relative w-full px-2 md:px-8 py-8 hover:cursor-pointer"
+        onClick={() => navigate("/Details")}
+      >
         <MovieSection />
       </div>
       <footer className="w-full bg-black text-gray-400 text-xs mt-10">
