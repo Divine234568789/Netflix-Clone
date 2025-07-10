@@ -1,68 +1,97 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
+// const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 const MovieRow = ({
   title,
-  itemCount,
   endpoint,
+  itemCount,
 }: {
   title: string;
-  itemCount: number;
   endpoint: string;
+  itemCount: number;
 }) => {
-  const [movies, setMovies] = useState<any[]>([]); // i don't want to specify a type here, if you know what to do please send the solution to the group
+  const [movies, setMovies] = useState<any[]>([]);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      try {
-        const res = await axios.get(
-          `https://api.themoviedb.org/3${endpoint}$
-          {endpoint.includes("?") ? "&" : "?"}api_key=${API_KEY}&language=en-US`
-        );
-        setMovies(res.data.results.slice(0, itemCount));
-      } catch (err) {
-        console.error(`Error loading ${title} movies:`, err);
-      }
+      const fullUrl = `https://api.themoviedb.org/3${endpoint}${
+        endpoint.includes("?") ? "&" : "?"
+      }api_key=${API_KEY}&language=en-US`;
+
+      const res = await axios.get(fullUrl);
+      setMovies(res.data.results.slice(0, itemCount));
     };
 
     fetchMovies();
-  }, [endpoint, itemCount, title]);
+  }, [endpoint, itemCount]);
+
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollAmount = 300;
+
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <div className="mt-10">
-      <div className="flex justify-between items-center px-2 md:px-8">
-        <h2 className="text-base md:text-xl font-semibold text-white">
-          {title}
-        </h2>
+    <div className="relative mt-10 px-4 md:px-8 group">
+      <h2 className="text-xl font-bold text-white mb-2">{title}</h2>
+
+      <button
+        onClick={() => scroll("left")}
+        className="hidden group-hover:flex absolute -left-3 top-[50%] -translate-y-1/2 z-10 bg-black/50 hover:bg-black hover:cursor-pointer text-white px-2 py-2 rounded-full"
+      >
+        <ArrowLeft />
+      </button>
+      <button
+        onClick={() => scroll("right")}
+        className="hidden group-hover:flex absolute -right-3 top-[50%] -translate-y-1/2 z-10 bg-black/50 hover:bg-black hover:cursor-pointer text-white px-2 py-2 rounded-full"
+      >
+        <ArrowRight />
+      </button>
+
+      <div
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+      >
+        {movies.map((movie) => (
+          <Link
+            key={movie.id}
+            to={`/movie/${movie.id}`}
+            className="flex-shrink-0 w-[130px] md:w-[180px] h-[270px]"
+          >
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+              className="h-full w-full object-cover rounded hover:scale-105 transition"
+            />
+          </Link>
+          //   <Link to={`/movie/${movie.id}`} key={movie.id}>
+          //     <img
+          //       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          //       alt={movie.title}
+          //       className="h-full w-full object-cover rounded hover:scale-105 transition"
+          //     />
+          //   </Link>
+        ))}
+      </div>
+
+      <div className="mt-3 text-sm rounded bg-red-600 hover:bg-red-900 transition hover:cursor-pointer flex w-15 justify-center p-2 text-left">
         <Link
           to={`/category/${encodeURIComponent(title)}`}
-          className="text-xl text-white hover:bg-white hover:text-black border rounded p-2 border-white"
+          className="text-white"
         >
           See All
         </Link>
-      </div>
-
-      <div className="mt-5 pl-2 md:pl-8 flex gap-4 overflow-x-auto scrollbar-hide">
-        {movies.map((movie) => (
-          <div
-            key={movie.id}
-            className="min-w-[8rem] md:min-w-[13rem] h-24 md:h-32 flex items-center justify-center"
-          >
-            <img
-              src={
-                movie.poster_path
-                  ? `${IMAGE_BASE_URL}${movie.poster_path}`
-                  : "https://via.placeholder.com/150x225?text=No+Image"
-              }
-              alt={movie.title}
-              className="w-full h-full object-cover rounded"
-            />
-          </div>
-        ))}
       </div>
     </div>
   );

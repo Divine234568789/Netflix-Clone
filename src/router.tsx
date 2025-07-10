@@ -60,6 +60,14 @@ const router = createBrowserRouter([
     path: "/search/:query",
     Component: SearchResults,
   },
+  {
+    path: "/search/:query",
+    Component: SearchResults,
+  },
+  {
+    path: "/movie/:id",
+    Component: Details,
+  },
 ]);
 
 export default router;

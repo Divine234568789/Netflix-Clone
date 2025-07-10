@@ -14,7 +14,7 @@ body {
 }
 
 .landing .header {
-  background-image: url(/public/landing-img/bacground-1.jpg);
+  background-image: url(/landing-img/bacground-1.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,4 +25,12 @@ body {
   transition: all 0.1s ease;
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
