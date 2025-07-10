@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 const Landing = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/Signup-page");
+    navigate("/Netflix-Clone/Signup-page");
   };
 
   return (

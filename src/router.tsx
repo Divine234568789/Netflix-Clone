@@ -26,46 +26,46 @@ const router = createBrowserRouter([
   //   Component: HomeScreen,
   // },
   {
-    path: "/",
+    path: "/Netflix-Clone/",
     Component: Landing,
   },
 
   {
-    path: "/viewer",
+    path: "/Netflix-Clone/viewer",
     Component: Viewer,
   },
 
   {
-    path: "/Homepage",
+    path: "/Netflix-Clone/Homepage",
     Component: Homepage,
   },
 
   {
-    path: "/movie/:movieId",
+    path: "/Netflix-Clone/movie/:movieId",
     Component: Details,
   },
   {
-    path: "/Signup-page",
+    path: "/Netflix-Clone/Signup-page",
     Component: SignupPage,
   },
   {
-    path: "/Login-page",
+    path: "/Netflix-Clone/ogin-page",
     Component: LoginPage,
   },
   {
-    path: "/category/:categoryName",
+    path: "/Netflix-Clone/category/:categoryName",
     Component: CategoryPage,
   },
   {
-    path: "/search/:query",
+    path: "/Netflix-Clone/search/:query",
     Component: SearchResults,
   },
   {
-    path: "/search/:query",
+    path: "/Netflix-Clone/search/:query",
     Component: SearchResults,
   },
   {
-    path: "/details/:id",
+    path: "/Netflix-Clone/details/:id",
     Component: Details,
   },
 ]);

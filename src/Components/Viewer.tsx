@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 const Viewer = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/Homepage");
+    navigate("/Netflix-Clone/Homepage");
   };
   return (
     <section>

@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 const Homepage = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/Viewer");
+    navigate("/Netflix-Clone/Viewer");
   };
   return (
     <section className="homepage w-full min-h-screen bg-black">
