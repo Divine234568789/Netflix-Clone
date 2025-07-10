@@ -1,20 +1,24 @@
 import MovieRow from "./MovieRow";
 
 const categories = [
-  { title: "Popular", endpoint: "/movie/popular", count: 7 },
-  { title: "Now Playing", endpoint: "/movie/now_playing", count: 7 },
-  { title: "Top Rated", endpoint: "/movie/top_rated", count: 7 },
-  { title: "Trending This Week", endpoint: "/trending/movie/week", count: 7 },
-  { title: "Comedy", endpoint: "/discover/movie?with_genres=35", count: 7 },
-  { title: "Continue Watching James", endpoint: "/movie/popular", count: 4 },
+  { title: "Popular", endpoint: "/movie/popular", count: 15 },
+  { title: "Now Playing", endpoint: "/movie/now_playing", count: 15 },
+  { title: "Top Rated", endpoint: "/movie/top_rated", count: 15 },
+  { title: "Trending This Week", endpoint: "/trending/movie/week", count: 15 },
+  { title: "Comedy", endpoint: "/discover/movie?with_genres=35", count: 15 },
+  { title: "Continue Watching James", endpoint: "/movie/popular", count: 8 },
 
-  { title: "Horror", endpoint: "/discover/movie?with_genres=27", count: 7 },
-  { title: "Romance", endpoint: "/discover/movie?with_genres=10749", count: 7 },
-  { title: "Sci-Fi", endpoint: "/discover/movie?with_genres=878", count: 7 },
+  { title: "Horror", endpoint: "/discover/movie?with_genres=27", count: 15 },
+  {
+    title: "Romance",
+    endpoint: "/discover/movie?with_genres=10749",
+    count: 15,
+  },
+  { title: "Sci-Fi", endpoint: "/discover/movie?with_genres=878", count: 15 },
   {
     title: "Documentary",
     endpoint: "/discover/movie?with_genres=99",
-    count: 7,
+    count: 15,
   },
 ];
 

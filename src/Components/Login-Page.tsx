@@ -37,7 +37,7 @@ const LoginPage = () => {
 
     // alert(`Welcome back, ${parsedUser.email}!`);
     toast.success(`Welcome back, ${parsedUser.email}!`);
-    setTimeout(() => navigate("/Netflix-Clone/Homepage"), 1500);
+    setTimeout(() => navigate("/Homepage"), 1500);
   };
 
   return (

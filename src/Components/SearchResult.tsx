@@ -6,7 +6,7 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 const SearchResults = () => {
   const { query } = useParams();
-  const [results, setResults] = useState<any[]>([]); // i don't want to specify a type here, if you know what to do please send the solution to the group
+  const [results, setResults] = useState<Array<Record<string, string>>>([]);
 
   useEffect(() => {
     axios

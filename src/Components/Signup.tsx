@@ -18,7 +18,6 @@ const SignupPage = () => {
         const result = await signInWithPopup(auth, googleProvider);
         const user = result.user;
 
-        // Store in localStorage
         const userData = {
           name: user.displayName,
           email: user.email,
@@ -28,7 +27,7 @@ const SignupPage = () => {
         localStorage.setItem(`user:${user.email}`, JSON.stringify(userData));
 
         toast.success(`Signed up as ${user.displayName}`);
-        navigate("/Netflix-Clone/Login-page");
+        navigate("/Login-page");
       } catch (error) {
         console.error(error);
         toast.error("Google sign-in failed");
@@ -82,7 +81,7 @@ const SignupPage = () => {
 
     localStorage.setItem(`user:${email}`, JSON.stringify(user));
     toast.success("Account created! Redirecting to login...");
-    setTimeout(() => navigate("/Netflix-Clone/Login-page"), 1500);
+    setTimeout(() => navigate("/Login-page"), 1500);
   };
 
   return (

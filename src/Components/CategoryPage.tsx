@@ -17,7 +17,7 @@ const categoryMap: Record<string, string> = {
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
-  const [movies, setMovies] = useState<any[]>([]); // i don't want to specify a type here, if you know what to do please send the solution to the group
+  const [movies, setMovies] = useState<Array<Record<string, string>>>([]);
   const [page, setPage] = useState(1);
 
   const endpoint = categoryMap[categoryName || ""] || "/movie/popular";
