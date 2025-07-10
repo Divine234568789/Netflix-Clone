@@ -15,7 +15,7 @@ const MovieRow = ({
   endpoint: string;
   itemCount: number;
 }) => {
-  const [movies, setMovies] = useState<any[]>([]);
+  const [movies, setMovies] = useState<any[]>([]); // how do i fix this error that is popping up
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -64,24 +64,13 @@ const MovieRow = ({
         className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
       >
         {movies.map((movie) => (
-          <Link
-            key={movie.id}
-            to={`/movie/${movie.id}`}
-            className="flex-shrink-0 w-[130px] md:w-[180px] h-[270px]"
-          >
+          <Link to={`/movie/${movie.id}`} key={movie.id}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
               className="h-full w-full object-cover rounded hover:scale-105 transition"
             />
           </Link>
-          //   <Link to={`/movie/${movie.id}`} key={movie.id}>
-          //     <img
-          //       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          //       alt={movie.title}
-          //       className="h-full w-full object-cover rounded hover:scale-105 transition"
-          //     />
-          //   </Link>
         ))}
       </div>
 

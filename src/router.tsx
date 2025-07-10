@@ -65,7 +65,7 @@ const router = createBrowserRouter([
     Component: SearchResults,
   },
   {
-    path: "/movie/:id",
+    path: "/details/:id",
     Component: Details,
   },
 ]);

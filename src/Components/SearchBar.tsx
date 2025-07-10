@@ -17,7 +17,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search movies..."
-        className="p-2 w-[250px] rounded"
+        className="p-2 w-[250px] rounded border border-white"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

@@ -34,3 +34,44 @@ const MovieSection = () => {
 };
 
 export default MovieSection;
+
+const categoriesWithDetails = [
+  { title: "Trailers Like These", endpoint: "/trending/movie/week", count: 7 },
+];
+
+export const MovieSectionWithDetails = () => {
+  return (
+    <div className="py-6">
+      {categoriesWithDetails.map((cate2) => (
+        <MovieRow
+          key={cate2.title}
+          title={cate2.title}
+          endpoint={cate2.endpoint}
+          itemCount={cate2.count}
+        />
+      ))}
+    </div>
+  );
+};
+const category2 = [
+  {
+    title: "More Like This",
+    endpoint: "/discover/movie?with_genres=35",
+    count: 8,
+  },
+];
+
+export const MoreDetails = () => {
+  return (
+    <div className="py-6">
+      {category2.map((cate3) => (
+        <MovieRow
+          key={cate3.title}
+          title={cate3.title}
+          endpoint={cate3.endpoint}
+          itemCount={cate3.count}
+        />
+      ))}
+    </div>
+  );
+};

@@ -2,6 +2,7 @@ import { Bell, ChevronDown, Info, Play, Search } from "lucide-react";
 import "react";
 import MovieSection from "./MovieSection";
 import { useNavigate } from "react-router";
+import SearchBar from "./SearchBar";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ const Homepage = () => {
       <footer className="w-full bg-[#141414] text-gray-400 text-xs mt-10">
         <div className="relative w-full px-2 md:px-8 py-8">
           <MovieSection />
+          <SearchBar />
         </div>
         <article className="relative w-full max-w-6xl mx-auto flex flex-col items-center p-6 md:p-20">
           <div className="mb-4">
