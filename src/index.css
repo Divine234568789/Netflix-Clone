@@ -1,18 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  /* color-scheme: light dark; */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.log {
+  background-image: url("/img/bg-img.jpg");
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  width: 100%;
 }
 
+body {
+  background-color: #141414;
+  color: white;
+}
 
-* {
-  appearance: none;
-  outline: none;
-  box-sizing: border-box;
-  text-decoration: none;
+.landing .header {
+  background-image: url(/landing-img/bacground-1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 100%;
+}
+
+.question:hover {
+  transition: all 0.1s ease;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
